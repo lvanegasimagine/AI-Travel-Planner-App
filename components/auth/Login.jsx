@@ -1,8 +1,10 @@
 import { Colors } from '@/constants/Colors';
-import { Image, View, Text, StyleSheet, Dimensions } from 'react-native';
+import { useRouter } from 'expo-router';
+import { Image, View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 
 export default function Login() {
     const { height } = Dimensions.get('window');
+    const router = useRouter();
 
     return (
         <View style={{ flex: 1 }}>
@@ -12,9 +14,9 @@ export default function Login() {
                 <Text style={styles.description}>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, officiis nobis numquam eius aliquam unde quos quisquam modi magnam odit ipsam voluptatum, dolorum culpa dicta cumque ad rem blanditiis asperiores?
                 </Text>
-                <View style={styles.button}>
+                <TouchableOpacity onPress={() => router.push('auth/sign-in')} style={styles.button}>
                     <Text style={styles.buttonText}>Get Started</Text>
-                </View>
+                </TouchableOpacity>
             </View>
         </View>
     );
